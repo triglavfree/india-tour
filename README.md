@@ -275,13 +275,6 @@ temp_*
 upload/
 examples/
 ```
-
-## Контакты
-
-- **Телефон**: +7-963-503-88-61
-- **Email**: madam.ischutina@mail.ru
-- **Telegram**: https://t.me/candrachakora81
-
 ## Лицензия
 
 MIT
