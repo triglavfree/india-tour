@@ -157,28 +157,28 @@ const reviews = [
   {
     name: "Анна С.",
     location: "Москва",
-    text: "Невероятно! Это путешествие перевернуло мою жизнь! Я приехала другим человеком — нашла своё истинное предназначение. Ганга смыла всё лишнее, и я услышала голос своей души. Божественно! Харе Кришна!🙏🌸",
+    text: "Это путешествие перевернуло мою жизнь. Я приехала другим человеком — нашла своё истинное предназначение. Ганга смыла всё лишнее, и я услышала голос своей души. Харе Кришна!🙏🌸",
     rating: 5,
     avatar: "/images/reviewer1.jpg",
   },
   {
     name: "Дмитрий К.",
     location: "Санкт-Петербург",
-    text: "Откровение! Годы поиска смысла жизни привели меня в этот тур. Бадринатх открыл мне истину, которую я искал всю жизнь. Потрясающе! Теперь я знаю, зачем пришёл в этот мир. Харе Кришна!🙏🌸",
+    text: "Годы поиска смысла жизни привели меня в этот тур. Бадринатх открыл мне истину, которую я искал всю жизнь. Теперь я знаю, зачем пришёл в этот мир. Харе Кришна!🙏🌸",
     rating: 5,
     avatar: "/images/reviewer2.jpg",
   },
   {
     name: "Мария В.",
     location: "Барнаул",
-    text: "Вриндаван — это чудо! Моя душа пробудилась! Я поняла, что всю жизнь шла не своим путём. Невероятное чувство! Сейчас я живу в полном соответствии со своим предназначением. Харе Кришна!🙏🌸",
+    text: "Вриндаван пробудил мою душу. Я поняла, что всю жизнь шла не своим путём. Сейчас я живу в полном соответствии со своим предназначением. Благодарна судьбе за этот тур. Харе Кришна!🙏🌸",
     rating: 5,
     avatar: "/images/reviewer3.jpg",
   },
   {
     name: "Сергей П.",
     location: "Новосибирск",
-    text: "Этот тур стал точкой невозврата! Божественное провидение! Старая жизнь осталась позади. Я обрёл ясность, цель и глубокое понимание своего пути. Индия изменила меня навсегда! Харе Кришна!🙏🌸",
+    text: "Этот тур стал точкой невозврата. Старая жизнь осталась позади. Я обрёл ясность, цель и глубокое понимание своего пути. Индия изменила меня навсегда. Харе Кришна!🙏🌸",
     rating: 5,
     avatar: "/images/reviewer4.jpg",
   },
@@ -417,7 +417,7 @@ function TeamCarousel() {
         {visibleMembers.map((member, idx) => (
           <motion.div
             key={`${currentIndex}-${member.name}`}
-            className="relative rounded-2xl overflow-hidden shadow-lg border border-gold/20 hover:shadow-xl transition-shadow duration-300 group"
+            className="relative rounded-2xl overflow-hidden shadow-lg border border-[var(--gold)]/20 hover:shadow-xl transition-shadow duration-300 group"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
@@ -435,7 +435,7 @@ function TeamCarousel() {
               <h3 className="font-playfair text-sm md:text-lg lg:text-xl font-bold text-white mb-1">
                 {member.name}
               </h3>
-              <p className="text-saffron text-[10px] md:text-xs lg:text-sm font-semibold mb-1 md:mb-2">
+              <p className="text-[var(--saffron)] text-[10px] md:text-xs lg:text-sm font-semibold mb-1 md:mb-2">
                 {member.title}
               </p>
               <p className="text-white/80 text-[9px] md:text-xs leading-relaxed line-clamp-2 md:line-clamp-none">
@@ -496,7 +496,7 @@ function ReviewsCarousel() {
             <Card className="h-full bg-card/60 border-border/50 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6 md:p-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-gold/30">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[var(--gold)]/30">
                     <Image
                       src={review.avatar}
                       alt={review.name}
@@ -514,7 +514,7 @@ function ReviewsCarousel() {
                 </p>
                 <div className="flex gap-0.5">
                   {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                    <Star key={i} className="w-4 h-4 fill-[var(--gold)] text-[var(--gold)]" />
                   ))}
                 </div>
               </CardContent>
@@ -526,14 +526,14 @@ function ReviewsCarousel() {
       {/* Navigation Buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all shadow-lg"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center text-muted-foreground hover:text-[var(--gold)] hover:border-[var(--gold)]/50 transition-all shadow-lg"
         aria-label="Предыдущие отзывы"
       >
         <ChevronDown className="w-5 h-5 rotate-90" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold/50 transition-all shadow-lg"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm border border-border flex items-center justify-center text-muted-foreground hover:text-[var(--gold)] hover:border-[var(--gold)]/50 transition-all shadow-lg"
         aria-label="Следующие отзывы"
       >
         <ChevronDown className="w-5 h-5 -rotate-90" />
@@ -564,7 +564,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md p-0 overflow-hidden bg-deep-earth border-gold/30 text-white">
+      <DialogContent className="max-w-md p-0 overflow-hidden bg-[var(--deep-earth)] border-[var(--gold)]/30 text-white">
         <DialogHeader className="p-6 pb-0">
           <div className="flex justify-between items-center">
             <DialogTitle className="font-playfair text-2xl font-bold text-gradient-gold">
@@ -586,7 +586,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
             >
               ✨
             </motion.div>
-            <h3 className="font-playfair text-xl font-bold text-gold mb-2">
+            <h3 className="font-playfair text-xl font-bold text-[var(--gold)] mb-2">
               Спасибо за заявку!
             </h3>
             <p className="text-white/70 text-sm">
@@ -605,7 +605,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Иван"
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-gold"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-[var(--gold)]"
               />
             </div>
 
@@ -620,7 +620,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="+7 (999) 123-45-67"
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-gold"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-[var(--gold)]"
               />
             </div>
 
@@ -634,7 +634,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="ivan@example.com"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-gold"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-[var(--gold)]"
               />
             </div>
 
@@ -648,7 +648,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Расскажите о ваших ожиданиях..."
                 rows={3}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-gold resize-none"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-[var(--gold)] resize-none"
               />
             </div>
 
@@ -656,7 +656,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
               type="submit"
               size="lg"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-gold to-saffron text-deep-earth font-semibold py-5 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="w-full bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] text-[var(--deep-earth)] font-semibold py-5 rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               {isSubmitting ? (
                 "Отправка..."
@@ -673,11 +673,11 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
         <div className="p-6 bg-white/5 border-t border-white/10">
           <p className="text-white/50 text-xs text-center mb-3">Или свяжитесь напрямую:</p>
           <div className="flex flex-col md:flex-row justify-center gap-4 text-sm">
-            <a href="tel:+79635038861" className="flex items-center justify-center gap-2 text-gold hover:text-white transition-colors">
+            <a href="tel:+79635038861" className="flex items-center justify-center gap-2 text-[var(--gold)] hover:text-white transition-colors">
               <Phone className="h-4 w-4" />
               +7-963-503-88-61
             </a>
-            <a href="mailto:madam.ischutina@mail.ru" className="flex items-center justify-center gap-2 text-gold hover:text-white transition-colors">
+            <a href="mailto:madam.ischutina@mail.ru" className="flex items-center justify-center gap-2 text-[var(--gold)] hover:text-white transition-colors">
               <Mail className="h-4 w-4" />
               madam.ischutina@mail.ru
             </a>
@@ -690,7 +690,7 @@ function ContactModal({ open, onOpenChange }: { open: boolean; onOpenChange: (op
 
 // Program Icon Component
 function ProgramIcon({ type, isAnimating }: { type: string; isAnimating: boolean }) {
-  const iconClass = "w-5 h-5 md:w-6 md:h-6 text-saffron";
+  const iconClass = "w-5 h-5 md:w-6 md:h-6 text-[var(--saffron)]";
   
   switch (type) {
     case "plane-arrival":
@@ -772,7 +772,7 @@ export default function HomePage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-earth/50 via-deep-earth/40 to-deep-earth/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--deep-earth)]/50 via-[var(--deep-earth)]/40 to-[var(--deep-earth)]/60" />
       </div>
 
       {/* Content */}
@@ -784,17 +784,17 @@ export default function HomePage() {
 
           {/* Decorative Elements - without emoji */}
           <motion.div
-            className="absolute top-20 left-10 w-8 h-8 rounded-full bg-gold/20"
+            className="absolute top-20 left-10 w-8 h-8 rounded-full bg-[var(--gold)]/20"
             animate={{ y: [0, -20, 0], scale: [1, 1.2, 1] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute top-40 right-20 w-6 h-6 rounded-full bg-saffron/30"
+            className="absolute top-40 right-20 w-6 h-6 rounded-full bg-[var(--saffron)]/30"
             animate={{ y: [0, -15, 0], scale: [1, 1.3, 1] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           />
           <motion.div
-            className="absolute bottom-40 left-20 w-5 h-5 rounded-full bg-gold/25"
+            className="absolute bottom-40 left-20 w-5 h-5 rounded-full bg-[var(--gold)]/25"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           />
@@ -821,7 +821,7 @@ export default function HomePage() {
             </motion.h1>
 
             <motion.p
-              className="font-serif text-xl md:text-2xl text-gold italic mb-6"
+              className="font-serif text-xl md:text-2xl text-[var(--gold)] italic mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -838,7 +838,7 @@ export default function HomePage() {
             >
               <p className="text-white/60 text-sm mb-3">Волшебство начнётся через</p>
               <CountdownTimer />
-              <p className="text-gold font-playfair text-lg md:text-xl mt-4 italic">
+              <p className="text-[var(--gold)] font-playfair text-lg md:text-xl mt-4 italic">
                 Путешествие мечты
               </p>
             </motion.div>
@@ -850,7 +850,7 @@ export default function HomePage() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-gold to-saffron text-deep-earth font-semibold px-8 md:px-10 py-5 md:py-6 rounded-full text-base md:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] text-[var(--deep-earth)] font-semibold px-8 md:px-10 py-5 md:py-6 rounded-full text-base md:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 onClick={() => setContactModalOpen(true)}
               >
                 Забронировать место
@@ -878,13 +878,13 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-saffron font-inter text-sm tracking-[0.2em] uppercase mb-3">
+              <p className="text-[var(--saffron)] font-inter text-sm tracking-[0.2em] uppercase mb-3">
                 О путешествии
               </p>
               <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Путешествие к истокам
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-gold to-saffron mx-auto mb-6 md:mb-8 rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] mx-auto mb-6 md:mb-8 rounded-full" />
               <p className="font-inter text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed px-2">
                 Ришикеш — город ашрамов и центров йоги на берегу священной реки Ганга в предгорьях Гималаев.
                 В эти 13 волшебных дней вас ждёт омовение в Ганге, соприкосновение с величием древних святынь,
@@ -903,7 +903,7 @@ export default function HomePage() {
                 >
                   <Card className="h-full hover:shadow-xl transition-all duration-300 border-white/20 bg-white/10 backdrop-blur-xl shadow-lg">
                     <CardContent className="p-4 md:p-6">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-gold to-saffron flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[var(--gold)] to-[var(--saffron)] flex items-center justify-center mb-3 md:mb-4 shadow-lg">
                         <item.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                       </div>
                       <h3 className="font-playfair text-lg md:text-xl font-bold text-foreground mb-2">
@@ -919,7 +919,7 @@ export default function HomePage() {
         </section>
 
         {/* Destinations Section */}
-        <section className="py-16 md:py-24 px-4 md:px-6 bg-deep-earth/60 backdrop-blur-md text-white relative overflow-hidden">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-[var(--deep-earth)]/60 backdrop-blur-md text-white relative overflow-hidden">
           <div className="absolute inset-0 sacred-pattern opacity-20" />
 
           <div className="max-w-6xl mx-auto relative z-10">
@@ -929,20 +929,20 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-gold font-inter text-sm tracking-[0.2em] uppercase mb-3">
+              <p className="text-[var(--gold)] font-inter text-sm tracking-[0.2em] uppercase mb-3">
                 Священные места
               </p>
               <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Жемчужины маршрута
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] mx-auto rounded-full" />
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {destinations.map((dest, index) => (
                 <motion.div
                   key={dest.name}
-                  className="group rounded-2xl overflow-hidden border border-white/10 hover:border-gold/40 transition-all duration-500 hover:shadow-xl"
+                  className="group rounded-2xl overflow-hidden border border-white/10 hover:border-[var(--gold)]/40 transition-all duration-500 hover:shadow-xl"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -955,8 +955,8 @@ export default function HomePage() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-deep-earth/90 via-transparent to-transparent" />
-                    <h3 className="absolute bottom-4 left-6 font-playfair text-2xl md:text-3xl font-bold text-gold">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--deep-earth)]/90 via-transparent to-transparent" />
+                    <h3 className="absolute bottom-4 left-6 font-playfair text-2xl md:text-3xl font-bold text-[var(--gold)]">
                       {dest.name}
                     </h3>
                   </div>
@@ -978,13 +978,13 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-saffron font-inter text-sm tracking-[0.2em] uppercase mb-3">
+              <p className="text-[var(--saffron)] font-inter text-sm tracking-[0.2em] uppercase mb-3">
                 Фотогалерея
               </p>
               <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Мгновения путешествий
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] mx-auto rounded-full" />
             </motion.div>
 
             <GalleryCarousel />
@@ -1000,17 +1000,17 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-saffron font-inter text-sm tracking-[0.2em] uppercase mb-3">
+              <p className="text-[var(--saffron)] font-inter text-sm tracking-[0.2em] uppercase mb-3">
                 Маршрут
               </p>
               <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Программа тура
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] mx-auto rounded-full" />
             </motion.div>
 
             <div className="relative">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold via-saffron to-gold md:-translate-x-px" />
+              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--gold)] via-[var(--saffron)] to-[var(--gold)] md:-translate-x-px" />
 
               {programData.map((item, index) => (
                 <motion.div
@@ -1023,7 +1023,7 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-gold to-saffron border-4 border-background z-10 flex items-center justify-center shadow-lg">
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[var(--gold)] to-[var(--saffron)] border-4 border-background z-10 flex items-center justify-center shadow-lg">
                     <ProgramIcon type={item.icon} isAnimating={true} />
                   </div>
 
@@ -1033,7 +1033,7 @@ export default function HomePage() {
                     } items-center`}
                   >
                     <div className="max-w-md">
-                      <div className="font-playfair text-lg font-bold text-saffron">
+                      <div className="font-playfair text-lg font-bold text-[var(--saffron)]">
                         {item.date}
                       </div>
                       <p className="text-white/80 mt-1 font-inter text-sm">{item.description}</p>
@@ -1041,7 +1041,7 @@ export default function HomePage() {
                   </div>
 
                   <div className="md:hidden pl-12">
-                    <div className="font-playfair text-base font-bold text-saffron">
+                    <div className="font-playfair text-base font-bold text-[var(--saffron)]">
                       {item.date}
                     </div>
                     <p className="text-white/80 mt-1 font-inter text-sm">{item.description}</p>
@@ -1055,7 +1055,7 @@ export default function HomePage() {
         </section>
 
         {/* Team Section */}
-        <section className="py-16 md:py-24 px-4 md:px-6 bg-deep-earth/60 backdrop-blur-md text-white relative overflow-hidden">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-[var(--deep-earth)]/60 backdrop-blur-md text-white relative overflow-hidden">
           <div className="absolute inset-0 sacred-pattern opacity-20" />
 
           <div className="max-w-6xl mx-auto relative z-10">
@@ -1065,13 +1065,13 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-gold font-inter text-sm tracking-[0.2em] uppercase mb-3">
+              <p className="text-[var(--gold)] font-inter text-sm tracking-[0.2em] uppercase mb-3">
                 Наша команда
               </p>
               <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Люди, влюблённые в Индию
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] mx-auto rounded-full" />
             </motion.div>
 
             <TeamCarousel />
@@ -1087,13 +1087,13 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-saffron font-inter text-sm tracking-[0.2em] uppercase mb-3">
+              <p className="text-[var(--saffron)] font-inter text-sm tracking-[0.2em] uppercase mb-3">
                 Отзывы
               </p>
               <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Что говорят путешественники
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-gold to-saffron mx-auto rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] mx-auto rounded-full" />
             </motion.div>
 
             <ReviewsCarousel />
@@ -1101,7 +1101,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="py-10 md:py-12 px-4 md:px-6 bg-deep-earth/70 backdrop-blur-md border-t border-white/10 text-white relative">
+        <footer className="py-10 md:py-12 px-4 md:px-6 bg-[var(--deep-earth)]/70 backdrop-blur-md border-t border-white/10 text-white relative">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
               <div className="text-center md:text-left">
@@ -1121,7 +1121,7 @@ export default function HomePage() {
                     href="https://t.me/+rXG-4_Xc8FU5Yjgy" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold to-saffron text-deep-earth font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--saffron)] text-[var(--deep-earth)] font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
@@ -1133,7 +1133,7 @@ export default function HomePage() {
                     href="https://wa.me/79635038861?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%21%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%20%D1%82%D1%83%D1%80%20%D0%B2%20%D0%A0%D0%B8%D1%88%D0%B8%D0%BA%D0%B5%D1%88." 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/70 hover:text-gold hover:border-gold/50 transition-all"
+                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/70 hover:text-[var(--gold)] hover:border-[var(--gold)]/50 transition-all"
                     aria-label="WhatsApp"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -1145,7 +1145,7 @@ export default function HomePage() {
                     href="https://t.me/candrachakora81" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/70 hover:text-gold hover:border-gold/50 transition-all"
+                    className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/70 hover:text-[var(--gold)] hover:border-[var(--gold)]/50 transition-all"
                     aria-label="Telegram канал"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -1156,11 +1156,11 @@ export default function HomePage() {
                 
                 {/* Contact Info */}
                 <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-white/60 font-inter text-sm">
-                  <a href="tel:+79635038861" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <a href="tel:+79635038861" className="flex items-center gap-2 hover:text-[var(--gold)] transition-colors">
                     <Phone className="h-4 w-4" />
                     +7-963-503-88-61
                   </a>
-                  <a href="mailto:madam.ischutina@mail.ru" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <a href="mailto:madam.ischutina@mail.ru" className="flex items-center gap-2 hover:text-[var(--gold)] transition-colors">
                     <Mail className="h-4 w-4" />
                     madam.ischutina@mail.ru
                   </a>
@@ -1168,14 +1168,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent my-6 md:my-8" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--gold)]/30 to-transparent my-6 md:my-8" />
 
             {/* Maha Mantra */}
             <div className="text-center mb-6">
-              <p className="text-gold/80 font-inter text-xs md:text-sm leading-relaxed">
+              <p className="text-[var(--gold)]/80 font-inter text-xs md:text-sm leading-relaxed">
                 🌸 Харе Кришна Харе Кришна Кришна Кришна Харе Харе 🌸
               </p>
-              <p className="text-gold/80 font-inter text-xs md:text-sm leading-relaxed mt-1">
+              <p className="text-[var(--gold)]/80 font-inter text-xs md:text-sm leading-relaxed mt-1">
                 🌸 Харе Рама Харе Рама Рама Рама Харе Харе 🌸
               </p>
             </div>
