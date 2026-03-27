@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Разрешить доступ с других устройств в локальной сети
+  allowedDevOrigins: ['localhost', '127.0.0.1', '*.local'],
 };
 
 export default nextConfig;
