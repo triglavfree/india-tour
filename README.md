@@ -19,59 +19,22 @@ my-project/
 │   ├── app/
 │   │   ├── page.tsx          # Главная страница лендинга
 │   │   ├── layout.tsx        # Корневой layout с SEO
-│   │   ├── globals.css       # Глобальные стили и CSS-переменные
-│   │   └── api/
-│   │       └── route.ts      # API routes
+│   │   └── globals.css       # Глобальные стили
 │   ├── components/
 │   │   └── ui/               # shadcn/ui компоненты
-│   │       ├── button.tsx    # Кнопка
-│   │       ├── card.tsx      # Карточка
-│   │       ├── dialog.tsx    # Модальное окно
-│   │       ├── input.tsx     # Поле ввода
-│   │       ├── label.tsx     # Метка
-│   │       └── textarea.tsx  # Текстовое поле
-│   ├── hooks/                # React хуки
-│   │   ├── use-mobile.ts
-│   │   └── use-toast.ts
 │   └── lib/
-│       ├── db.ts             # Prisma клиент
-│       └── utils.ts          # Утилиты (cn и др.)
+│       └── utils.ts          # Утилиты
 ├── public/
-│   ├── images/               # Изображения для сайта
-│   │   ├── hero-bg.png       # Фоновое изображение
-│   │   ├── elena.png         # Фото организатора
-│   │   ├── rishikesh-new.jpg # Изображение Ришикеша
-│   │   ├── badrinath-new.jpg # Изображение Бадринатха
-│   │   ├── vrindavan-new.jpg # Изображение Вриндавана
-│   │   ├── reviewer1.jpg     # Аватар отзыва 1
-│   │   ├── reviewer2.jpg     # Аватар отзыва 2
-│   │   ├── reviewer3.jpg     # Аватар отзыва 3
-│   │   ├── reviewer4.jpg     # Аватар отзыва 4
-│   │   ├── gallery-vrindavan-1.jpg  # Галерея Вриндаван
-│   │   ├── gallery-vrindavan-2.jpg
-│   │   ├── gallery-vrindavan-3.jpg
-│   │   ├── gallery-vrindavan-4.jpg
-│   │   ├── gallery-vrindavan-5.jpg
-│   │   └── team/             # Фотографии команды
-│   │       ├── tatiana.jpg
-│   │       ├── vyacheslav.jpg
-│   │       ├── vadim.jpg
-│   │       └── alexey.jpg
-│   └── robots.txt            # SEO robots файл
+│   └── images/               # Изображения для сайта
+│       ├── hero-bg.png       # Фоновое изображение
+│       ├── elena.png         # Фото организатора
+│       ├── team/             # Фотографии команды
+│       ├── reviewer*.jpg     # Аватары отзывов
+│       └── gallery-*.jpg     # Изображения галереи
 ├── prisma/
 │   └── schema.prisma         # Схема базы данных
-├── db/
-│   └── custom.db             # SQLite база данных
-├── package.json              # Зависимости и скрипты
-├── bun.lock                  # Lock-файл для bun
-├── tsconfig.json             # Конфигурация TypeScript
-├── next.config.ts            # Конфигурация Next.js
-├── tailwind.config.ts        # Конфигурация Tailwind CSS
-├── postcss.config.mjs        # Конфигурация PostCSS
-├── components.json           # Конфигурация shadcn/ui
-├── eslint.config.mjs         # Конфигурация ESLint
-├── .gitignore                # Исключения для Git
-└── README.md                 # Документация
+├── package.json
+└── README.md
 ```
 
 ## Требования
@@ -88,33 +51,31 @@ git clone <repository-url>
 cd my-project
 ```
 
-### 2. Очистка старых зависимостей (если были)
+### 2. Установка зависимостей
 
 ```bash
-rm -rf node_modules package-lock.json bun.lock
-```
-
-### 3. Установка зависимостей
-
-```bash
+bun install
+# или
 npm install
 ```
 
-### 4. Настройка базы данных
+### 3. Настройка базы данных
 
 ```bash
+bun run db:push
+# или
 npx prisma db push
 ```
 
-### 5. Запуск в режиме разработки
+### 4. Запуск в режиме разработки
 
 ```bash
+bun run dev
+# или
 npm run dev
 ```
 
 Сайт будет доступен по адресу: `http://localhost:3000`
-
-> **Примечание:** Turbopack отключён по умолчанию для совместимости со старыми процессорами.
 
 ## Скрипты
 
@@ -241,41 +202,6 @@ const TOUR_START_DATE = new Date("2026-04-27T00:00:00");
   --saffron: #FF9933;
   --deep-earth: #2D1810;
 }
-```
-
-## Рекомендуемый .gitignore
-
-```gitignore
-# dependencies
-node_modules/
-
-# next.js
-/.next/
-/out/
-
-# production
-/build/
-
-# env files
-.env*
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# misc
-.DS_Store
-*.pem
-
-# Временные файлы
-temp_*
-upload/
-examples/
 ```
 
 ## Контакты
